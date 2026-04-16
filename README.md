@@ -58,7 +58,3 @@ This project was completed as part of my M.S. in Data Analytics program at Weste
 - `models/imdb_sentiment_bilstm_model.keras`
 - `models/README.md`
 - `requirements.txt`
-
----
-
-*\* I used Claude (Anthropic) to help organize and stage this coursework into a GitHub portfolio repository. The analysis, code, and results are entirely my own.*
