@@ -1,64 +1,26 @@
-# Sentiment Analysis with BiLSTM
+# Movie-review sentiment and feedback triage
 
-## Overview
-This project uses a Bidirectional LSTM neural network to classify movie review sentiment from text. The workflow covers text cleaning, tokenization, sequence padding, deep learning model training, and evaluation on held-out test data.
+I built a bidirectional LSTM to classify short IMDb reviews as positive or negative. A possible use is to send likely complaints to a person for follow-up. On **75 test reviews**, the classifier flagged **49** as negative. That queue contained **34 of the 37 negative reviews** and **15 positive reviews**. A support team can use those counts to judge the extra reading it would take to catch complaints.
 
-## What a feedback team could learn from a review queue
-
-The coursework proposed using negative predictions to flag possible complaints for a person to read. In the 75-review IMDb test, the classifier caught 34 of 37 negative reviews. It also put 15 positive reviews in that queue. A support manager can weigh those extra reads against the value of finding complaints sooner. A pilot on the team’s own feedback would show whether that tradeoff carries over from movie reviews.
-
-## Academic Context
-Completed during my M.S. in Data Analytics at Western Governors University (WGU), then packaged here as a public portfolio project. Screenshots from the original written submission are preserved in `assets/report-extracts/`.
-
-## Dataset
-- Source: IMDB labeled sentences dataset
-- Total reviews used: 748
-- Label distribution: 362 negative, 386 positive
-- Split: 598 train, 75 validation, 75 test
-
-## Preprocessing
-- lowercased text
-- removed URLs and HTML
-- removed punctuation and non-alphanumeric characters
-- removed English stopwords with NLTK
-- tokenized text with a Keras tokenizer using an OOV token
-- padded all sequences to a fixed length of 50 tokens
-
-## Model
-- Embedding layer: 100 dimensions
-- Bidirectional LSTM: 128 units
-- Dense hidden layer: 64 units
-- Dropout: 0.4 and 0.3
-- Output: sigmoid for binary classification
-- Early stopping on validation loss with patience of 2
+[Open the evaluation notebook](notebooks/sentiment_bilstm.ipynb) · [Inspect the trained Keras model](models/imdb_sentiment_bilstm_model.keras) · [View the source reviews](data/imdb_labelled.txt)
 
 ## Results
-- Test loss: 0.5792
-- Test accuracy: 0.7600
-- Precision: 0.8846
-- Recall: 0.6053
-- F1-score: 0.7188
 
-## Model Artifact
-- The trained `imdb_sentiment_bilstm_model.keras` file is included in `models/` so reviewers can inspect or load the saved network without retraining the model from scratch.
+| Actual sentiment | Predicted negative | Predicted positive |
+|---|---:|---:|
+| Negative | 34 | 3 |
+| Positive | 15 | 23 |
 
-## Selected Visuals
+Test accuracy was **76.0%**. With *positive* as the target class, precision was 88.46%, recall was 60.53% and F1 was 0.7188. The queue above uses *negative* predictions, so the matrix is the place to read its workload. [Coursework figures](assets/report-extracts/)
 
-![Sentiment report visual 1](assets/report-extracts/report_image_01.png)
+## Text processing and model
 
-![Sentiment report visual 2](assets/report-extracts/report_image_02.png)
+I cleaned and tokenized 748 labeled reviews, removed English stopwords and padded sequences to 50 tokens. That length covered 99.3% of the reviews. The model used a 100-dimensional embedding, a 128-unit bidirectional LSTM, a 64-unit dense layer, dropout and early stopping. The stratified split produced 598 training, 75 validation and 75 test reviews.
 
-## Key Takeaways
-- The model achieved strong precision, meaning positive sentiment predictions were usually correct.
-- Recall was lower than precision, showing the model still missed some positive examples.
-- Sequence length selection mattered: a 50-token limit preserved 99.3% of the reviews while keeping the model tractable.
+The coursework tokenizer learned its vocabulary from the full review set before the split. For a customer-support pilot, fit the vocabulary on training text alone and evaluate on feedback from the intended channel. The IMDb score describes performance on movie reviews.
 
-## Included Files
-- `notebooks/sentiment_bilstm.ipynb`
-- `data/imdb_labelled.txt`
-- `data/train_dataset.csv`
-- `data/validation_dataset.csv`
-- `data/test_dataset.csv`
-- `models/imdb_sentiment_bilstm_model.keras`
-- `models/README.md`
-- `requirements.txt`
+## Review or rerun
+
+Install the [Python requirements](requirements.txt) in a Jupyter environment and run the notebook with `notebooks/` as its working directory. The notebook requests the NLTK stopwords resource on first use. Its preprocessing cells reconstruct the vocabulary and the padded inputs that the saved model expects. The Keras file accepts encoded token sequences. [Training split](data/train_dataset.csv) · [Validation split](data/validation_dataset.csv) · [Test split](data/test_dataset.csv)
+
+*WGU M.S. in Data Analytics coursework, D604 Advanced Analytics.*
