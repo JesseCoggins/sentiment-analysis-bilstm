@@ -3,6 +3,10 @@
 ## Overview
 This project uses a Bidirectional LSTM neural network to classify movie review sentiment from text. The workflow covers text cleaning, tokenization, sequence padding, deep learning model training, and evaluation on held-out test data.
 
+## What a feedback team could learn from a review queue
+
+The coursework proposed using negative predictions to flag possible complaints for a person to read. In the 75-review IMDb test, the classifier caught 34 of 37 negative reviews. It also put 15 positive reviews in that queue. A support manager can weigh those extra reads against the value of finding complaints sooner. A pilot on the team’s own feedback would show whether that tradeoff carries over from movie reviews.
+
 ## Academic Context
 Completed during my M.S. in Data Analytics at Western Governors University (WGU), then packaged here as a public portfolio project. Screenshots from the original written submission are preserved in `assets/report-extracts/`.
 
