@@ -11,7 +11,7 @@ I built a bidirectional LSTM to classify short IMDb reviews as positive or negat
 | Negative | 34 | 3 |
 | Positive | 15 | 23 |
 
-Test accuracy was **76.0%**. The 75-review test set is small, so this estimate should be interpreted cautiously and confirmed on a larger independent test set. With *positive* as the target class, precision was 88.46%, recall was 60.53% and F1 was 0.7188. The queue above uses *negative* predictions, so the matrix is the place to read its workload. [Coursework figures](assets/report-extracts/)
+Test accuracy was **76.0%**. The 75-review test set is small, so this estimate should be interpreted cautiously and confirmed on a larger independent test set. With *positive* as the target class, precision was 88.46%, recall was 60.53% and F1 was 0.7188. The queue above uses *negative* predictions, so the matrix is the place to read its workload. [Figures from the project report](assets/report-extracts/)
 
 ## Text processing and model
 
@@ -25,6 +25,7 @@ Install the [Python requirements](requirements.txt) in a Jupyter environment and
 
 ## Data and environment
 
-[Data origin and reuse notes](data/README.md). Install [requirements.txt](requirements.txt), which includes [the checked direct package versions](requirements-verified.txt). Text preparation and saved-model inference were checked on Python 3.13.1 with the pinned direct dependencies, reproducing 57 correct predictions out of 75. Full neural-network training was not rerun; training can vary across hardware. These are direct dependency pins, not a complete transitive lockfile.
+Data: IMDb excerpts from UCI Sentiment Labelled Sentences; [attribution](data/README.md).  
+Install: `python -m pip install -r requirements.txt`; [environment details](requirements-verified.txt).
 
 *WGU M.S. in Data Analytics coursework, D604 Advanced Analytics.*

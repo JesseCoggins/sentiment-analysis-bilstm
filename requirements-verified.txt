@@ -1,4 +1,7 @@
-# Direct package versions used for the validation scope documented in README.md.
+# Validation environment and scope
+# Text preparation and saved-model inference executed on Python 3.13.1. Reproduced 57/75 correct
+# and matrix [[34, 3], [15, 23]]. Full neural-network training was outside this check.
+# Direct package versions used for these checks:
 numpy==2.2.2
 pandas==2.2.3
 matplotlib==3.10.0
