@@ -17,11 +17,11 @@ Test accuracy was **76.0%**. The 75-review test set is small, so this estimate s
 
 I cleaned and tokenized 748 labeled reviews, removed English stopwords and padded sequences to 50 tokens. That length covered 99.3% of the reviews. The model used a 100-dimensional embedding, a 128-unit bidirectional LSTM, a 64-unit dense layer, dropout and early stopping. The stratified split produced 598 training, 75 validation and 75 test reviews.
 
-The coursework tokenizer learned its vocabulary from the full review set before the split. For a customer-support pilot, fit the vocabulary on training text alone and evaluate on feedback from the intended channel. The IMDb score describes performance on movie reviews.
+I fitted the tokenizer on the full review set before splitting it. For a customer-support pilot, fit the vocabulary on training text alone and evaluate on feedback from the intended channel. The IMDb score describes performance on movie reviews.
 
-## Review or rerun
+## Run it yourself
 
-Install the [Python requirements](requirements.txt) in a Jupyter environment and run the notebook with `notebooks/` as its working directory. The notebook requests the NLTK stopwords resource on first use. Its preprocessing cells reconstruct the vocabulary and the padded inputs that the saved model expects. The Keras file accepts encoded token sequences. [Training split](data/train_dataset.csv) · [Validation split](data/validation_dataset.csv) · [Test split](data/test_dataset.csv)
+Install the [Python requirements](requirements.txt) in a Jupyter environment and run the notebook with `notebooks/` as its working directory. The notebook requests the NLTK stopwords resource on first use. I use the preprocessing cells to reconstruct the vocabulary and padded inputs before running the saved model. It takes encoded token sequences. [Training split](data/train_dataset.csv) · [Validation split](data/validation_dataset.csv) · [Test split](data/test_dataset.csv)
 
 ## Data and environment
 
