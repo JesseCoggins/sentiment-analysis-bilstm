@@ -2,6 +2,10 @@
 
 I built a bidirectional LSTM to classify short IMDb reviews as positive or negative. A possible use is to send likely complaints to a person for follow-up. On **75 test reviews**, the classifier flagged **49** as negative. That queue contained **34 of the 37 negative reviews** and **15 positive reviews**. A support team can use those counts to judge the extra reading it would take to catch complaints.
 
+![Held-out sentiment confusion matrix with 34 correctly classified negative reviews and 23 positive reviews](assets/sentiment-test-confusion.png)
+
+*Confusion matrix for 75 test reviews; rows show actual sentiment and columns show predictions.*
+
 [Open the evaluation notebook](notebooks/sentiment_bilstm.ipynb) · [Inspect the trained Keras model](models/imdb_sentiment_bilstm_model.keras) · [View the source reviews](data/imdb_labelled.txt)
 
 ## Results
