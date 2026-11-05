@@ -1,6 +1,8 @@
-# Validation environment and scope
-# Text preparation and saved-model inference executed on Python 3.13.1. Reproduced 57/75 correct
-# and matrix [[34, 3], [15, 23]]. Full neural-network training was outside this check.
+# Validation environment: Python 3.13.1.
+# Complete parsing, grouped splitting, training and held-out evaluation executed.
+# 1,000 source reviews; 997 after exact deduplication; 799/100/98 split.
+# Test matrix [[40, 14], [7, 37]]; 77/98 correct; positive F1 0.7789473684.
+# Reloaded model/tokenizer reproduce all held-out probabilities and labels.
 # Direct package versions used for these checks:
 numpy==2.2.2
 pandas==2.2.3
