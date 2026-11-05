@@ -11,7 +11,7 @@ I built a bidirectional LSTM to classify short IMDb reviews as positive or negat
 | Negative | 34 | 3 |
 | Positive | 15 | 23 |
 
-Test accuracy was **76.0%**. With *positive* as the target class, precision was 88.46%, recall was 60.53% and F1 was 0.7188. The queue above uses *negative* predictions, so the matrix is the place to read its workload. [Coursework figures](assets/report-extracts/)
+Test accuracy was **76.0%**. The 75-review test set is small, so this estimate should be interpreted cautiously and confirmed on a larger independent test set. With *positive* as the target class, precision was 88.46%, recall was 60.53% and F1 was 0.7188. The queue above uses *negative* predictions, so the matrix is the place to read its workload. [Coursework figures](assets/report-extracts/)
 
 ## Text processing and model
 
