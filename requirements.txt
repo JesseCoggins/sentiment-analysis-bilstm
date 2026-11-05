@@ -1,7 +1,1 @@
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-tensorflow
-nltk
+-r requirements-verified.txt

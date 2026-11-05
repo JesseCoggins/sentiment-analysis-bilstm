@@ -23,4 +23,8 @@ The coursework tokenizer learned its vocabulary from the full review set before 
 
 Install the [Python requirements](requirements.txt) in a Jupyter environment and run the notebook with `notebooks/` as its working directory. The notebook requests the NLTK stopwords resource on first use. Its preprocessing cells reconstruct the vocabulary and the padded inputs that the saved model expects. The Keras file accepts encoded token sequences. [Training split](data/train_dataset.csv) · [Validation split](data/validation_dataset.csv) · [Test split](data/test_dataset.csv)
 
+## Data and environment
+
+[Data origin and reuse notes](data/README.md). Install [requirements.txt](requirements.txt), which includes [the checked direct package versions](requirements-verified.txt). Text preparation and saved-model inference were checked on Python 3.13.1 with the pinned direct dependencies, reproducing 57 correct predictions out of 75. Full neural-network training was not rerun; training can vary across hardware. These are direct dependency pins, not a complete transitive lockfile.
+
 *WGU M.S. in Data Analytics coursework, D604 Advanced Analytics.*
